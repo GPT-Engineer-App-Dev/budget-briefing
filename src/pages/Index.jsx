@@ -1,19 +1,27 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, Flex, Box } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+import FeaturedArticle from "../components/FeaturedArticle";
+import ArticleGrid from "../components/ArticleGrid";
+import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <Box>
+      <Navbar />
+      <Container maxW="container.xl" mt={8}>
+        <FeaturedArticle />
+        <Flex direction={{ base: "column", md: "row" }} spacing={8}>
+          <Box flex="3">
+            <ArticleGrid />
+          </Box>
+          <Box flex="1" ml={{ md: 8 }} mt={{ base: 8, md: 0 }}>
+            <Sidebar />
+          </Box>
+        </Flex>
+      </Container>
+      <Footer />
+    </Box>
   );
 };
 
